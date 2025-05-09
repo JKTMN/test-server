@@ -35,13 +35,17 @@ app.post('/api/audit', async (req, res) => {
 
 const runAccessibilityAudit = async (url) => {
   const browser = await puppeteer.launch({
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage'
-      ],
-      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH
-    });
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--single-process',
+      '--no-zygote',
+      '--headless=new',
+    ],
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+    headless: 'new',
+  });
 
   const page = await browser.newPage();
   await page.goto(url);

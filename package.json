@@ -17,6 +17,7 @@
     "express-fileupload": "1.5.1",
     "validator": "^13.15.0",
     "axe-puppeteer": "^1.1.1",
-    "puppeteer": "^21.1.1"
+    "puppeteer": "^21.1.1",
+    "node": "^18.0.0"
   }
 }
